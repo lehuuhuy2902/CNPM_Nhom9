@@ -8,25 +8,31 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-public class LoginView extends JFrame implements ActionListener{
+import controller.UserController;
+
+public class LoginView extends JFrame{
 	private JPanel panel;
 	private JButton buttonExit, buttonLogin;
 	private JLabel title, header, usernameLabel, passwordLabel;
 	private JTextField usernameTF;
 	private JPasswordField passwordF;
+	private UserController controller;
 	
 	public LoginView() {
+		controller = new UserController();
+		
 		this.setSize(800, 600);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
+		this.setTitle("Phần mềm quản lí cửa hàng quần áo");
 		
 		panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBackground(new Color(250, 250, 250));
 		
 		title = new JLabel("QUẢN LÝ CỬA HÀNG QUẦN ÁO");
-		title.setBounds(30, 40, 555, 75);
+		title.setBounds(40, 40, 700, 75);
 		title.setOpaque(true);
 		title.setBorder(new EmptyBorder(0,20,0,0));
 		title.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 40));
@@ -59,18 +65,49 @@ public class LoginView extends JFrame implements ActionListener{
 		buttonLogin.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
 		buttonLogin.setBackground(new Color(0, 11, 106));
 		buttonLogin.setForeground(new Color(255, 255, 255));
-		buttonLogin.addActionListener(this);
 		panel.add(buttonLogin);
+		
+		
+		buttonExit = new JButton("Exit");
+		buttonExit.setBounds(230, 400, 300, 30);
+		buttonExit.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
+		buttonExit.setBackground(new Color(208, 208, 208));
+		buttonExit.setForeground(new Color(0, 0, 0));
+		panel.add(buttonExit);
+		this.add(panel);
+		
+		buttonExit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		
+		buttonLogin.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String username = usernameTF.getText();
+				String password = passwordF.getText();
+				boolean result = controller.checkLogin(username, password);
+				if(result) {
+					setVisible(false);
+					new MainView(username).setVisible(true);
+				}
+				else {
+					JOptionPane.showMessageDialog(panel, "Đăng nhập không thành công, vui lòng đăng nhập lại");
+					
+				}
+				
+			}
+		});
 		
 	}
 	
-	
-	
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+	public static void main(String[] args) {
+		LoginView lv = new LoginView();
+		lv.setVisible(true);
 	}
 
 }

@@ -8,6 +8,7 @@ public class ProductController {
 	MainView mainView;
 	public ProductController() {
 		
+		
 	}
 	
 
