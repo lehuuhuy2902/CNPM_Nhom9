@@ -32,5 +32,23 @@ public class ConnectionDB {
 
     }
     
+    public static Connection connectDB() {
+		Connection con = null;
+		try {
+			String dbURL = "jdbc:mysql://localhost:3306/qlcuahangquanao";
+			String username = "root";
+			String password = "";
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(dbURL,username,password);
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return con;
+	}
+    
 
 }
