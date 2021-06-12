@@ -623,6 +623,33 @@ public class CreateInvoiceGUI extends JFrame {
 
 			}
 		});
+		txtIdCus.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				
+				txtNameCus.setText("");
+				txtPhoneCus.setText("");
+				txtType.setText("");
+				txtPoint.setText("");
+				txtHSD.setText("");
+				txtEmail.setText("");
+				txtDOB.setText("");
+				//set lại customer là null để ngăn chặn lỗi khi chưa nhập lại khách hàng mà lại lưu.
+				//Nếu ko set lại thì hệ thống sẽ lấy thông tin của kH trước đó.
+				controller.setCustomerIsNull();
+			}
+		});
+		txtPhoneCus.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				txtIdCus.setText("");
+				txtNameCus.setText("");
+				txtType.setText("");
+				txtPoint.setText("");
+				txtHSD.setText("");
+				txtEmail.setText("");
+				txtDOB.setText("");
+				controller.setCustomerIsNull();
+			}
+		});
 
 	}
 
