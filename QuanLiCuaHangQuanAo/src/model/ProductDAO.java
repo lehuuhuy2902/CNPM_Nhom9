@@ -24,7 +24,7 @@ public class ProductDAO {
 		try {
 			s = ConnectionDB.connect(sql);
 			s.setString(1, p.getName());
-			s.setLong(2, p.getPrice());
+			s.setDouble(2, p.getPrice());
 			s.setString(3, p.getAddDate());
 			s.setInt(4, p.getQuatity());
 			s.setString(5, p.getStatus());
@@ -46,7 +46,7 @@ public class ProductDAO {
 			s = ConnectionDB.connect();
 			ResultSet rs = s.executeQuery("select * from product");
 			while(rs.next()) {
-				listProduct.add(new Product(rs.getString(1), rs.getString(2), rs.getLong(3), rs.getString(4), rs.getInt(5), rs.getString(6)));
+				listProduct.add(new Product(rs.getString(1), rs.getString(2), rs.getDouble(3), rs.getString(4), rs.getInt(5), rs.getString(6)));
 				
 			}
 			

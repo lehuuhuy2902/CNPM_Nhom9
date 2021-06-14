@@ -317,7 +317,7 @@ public class ProductView extends JFrame {
 					int row = table.getSelectedRow();
 					Product p = listProduct.get(row);
 					p.setName(txt_tenSanPham.getText().trim());
-					p.setPrice(Long.parseLong(txt_gia.getText().trim()));
+					p.setPrice(Double.parseDouble(txt_gia.getText().trim()));
 					p.setQuatity(Integer.parseInt(txt_SoLuong.getText().trim()));
 					p.setStatus(txt_TinhTrang.getText().trim());
 					
