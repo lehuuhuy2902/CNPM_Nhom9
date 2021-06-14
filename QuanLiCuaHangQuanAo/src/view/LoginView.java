@@ -104,7 +104,8 @@ public class LoginView extends JFrame{
 		});
 		
 	}
-	
+
+
 	public static void main(String[] args) {
 		LoginView lv = new LoginView();
 		lv.setVisible(true);

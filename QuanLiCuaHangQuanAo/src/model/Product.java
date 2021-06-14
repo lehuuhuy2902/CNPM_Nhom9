@@ -7,26 +7,20 @@ import java.util.Date;
 public class Product {
 	private String id;
 	private String name;
-	private double price;
 	private String unit;
-	private String category;
+	private double price;
+	private String addDate;
 	private int quatity;
-	private Date addDate;
-	private boolean status;
-	public Product(String id, String name, String category, int quatity, Date addDate, boolean status) {
+	private String status;
+	
+	public Product(String id, String name, double price, String addDate, int quatity, String status) {
 		this.id = id;
 		this.name = name;
-		this.category = category;
-		this.quatity = quatity;
+		this.price = price;
 		this.addDate = addDate;
+		this.quatity = quatity;
 		this.status = status;
 	}
-	
-	public Product() {
-		super();
-	}
-
-
 	public Product(String id, String name, double price, String unit) {
 		super();
 		this.id = id;
@@ -34,42 +28,53 @@ public class Product {
 		this.price = price;
 		this.unit = unit;
 	}
-
-
+	public Product() {
+		super();
+	}
 	public String getId() {
 		return id;
 	}
-
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
-
 	public String getName() {
 		return name;
 	}
-
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
 	public double getPrice() {
 		return price;
 	}
-
+	public void setPrice(long price) {
+		this.price = price;
+	}
+	public String getAddDate() {
+		return addDate;
+	}
+	public void setAddDate(String addDate) {
+		this.addDate = addDate;
+	}
+	public int getQuatity() {
+		return quatity;
+	}
+	public void setQuatity(int quatity) {
+		this.quatity = quatity;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public void setPrice(double price) {
 		this.price = price;
 	}
 
-
 	public String getUnit() {
 		return unit;
 	}
-
 
 	public void setUnit(String unit) {
 		this.unit = unit;
@@ -81,11 +86,8 @@ public class Product {
 		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", unit=" + unit + "]";
 	}
 
-
-
-
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj){
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -112,6 +114,5 @@ public class Product {
 			return false;
 		return true;
 	}
-
 
 }
