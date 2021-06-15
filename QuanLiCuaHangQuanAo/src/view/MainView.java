@@ -66,6 +66,16 @@ public class MainView extends JFrame{
 		btnHoaDon.setBounds(0, 488, 172, 65);
 		panel.add(btnHoaDon);
 		
+
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setMaximumSize(new Dimension(527, 527));
+		lblNewLabel.setIcon(new ImageIcon("icon\\SHOP.png"));
+		lblNewLabel.setPreferredSize(new Dimension(527, 527));
+		lblNewLabel.setMinimumSize(new Dimension(527, 527));
+		lblNewLabel.setBounds(222, 14, 527, 527);
+		panel.add(lblNewLabel);
+		
+
 		btnProduct.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -73,5 +83,24 @@ public class MainView extends JFrame{
 				new ProductView().setVisible(true);
 			}
 		});
+		btnHoaDon.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				// TODO Auto-generated method stub
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							CreateInvoiceGUI frame = new CreateInvoiceGUI();
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+		});
+
 	}
 }
