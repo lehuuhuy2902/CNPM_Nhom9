@@ -96,4 +96,8 @@ public class CreateInvoiceController {
 		if(invoice.getCustomer()!=null) return true;
 		return false;
 	}
+	public void setCustomerIsNull() {
+		// TODO Auto-generated method stub
+		invoice.setCustomer(null);
+	}
 }
