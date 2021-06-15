@@ -93,9 +93,7 @@ public class LoginView extends JFrame{
 				boolean result = controller.checkLogin(username, password);
 				if(result) {
 					setVisible(false);
-					MainView m = new MainView(username);
-					m.setVisible(true);
-					m.setLocationRelativeTo(null);
+					new MainView(username).setVisible(true);
 				}
 				else {
 					JOptionPane.showMessageDialog(panel, "Đăng nhập không thành công, vui lòng đăng nhập lại");
