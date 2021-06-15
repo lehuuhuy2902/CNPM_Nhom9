@@ -11,7 +11,7 @@ public class ConnectionDB {
     public static Statement connect() throws SQLException, ClassNotFoundException {
         if (con==null||con.isClosed()){
             Class.forName("com.mysql.jdbc.Driver");
-            con= DriverManager.getConnection("jdbc:mysql://localhost/qlcuahangquanao","root","");
+            con= DriverManager.getConnection("jdbc:mysql://localhost/qlcuahangquanao1","root","");
             return con.createStatement();
         }
         else {
@@ -23,7 +23,7 @@ public class ConnectionDB {
     public static PreparedStatement connect(String sql) throws SQLException, ClassNotFoundException {
         if (con==null||con.isClosed()){
             Class.forName("com.mysql.jdbc.Driver");
-            con= DriverManager.getConnection("jdbc:mysql://localhost/qlcuahangquanao","root","");
+            con= DriverManager.getConnection("jdbc:mysql://localhost/qlcuahangquanao1","root","");
             return con.prepareStatement(sql);
         }
         else {
