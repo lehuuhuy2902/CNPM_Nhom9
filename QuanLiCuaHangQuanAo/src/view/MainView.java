@@ -1,8 +1,6 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
@@ -32,7 +30,6 @@ public class MainView extends JFrame{
 		panel.setBounds(0, 0, 782, 553);
 		contentPane.add(panel);
 		panel.setLayout(null);
-
 		
 		JButton btnStaff = new JButton("NH\u00C2N VI\u00CAN");
 		btnStaff.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -69,15 +66,6 @@ public class MainView extends JFrame{
 		btnHoaDon.setBounds(0, 488, 172, 65);
 		panel.add(btnHoaDon);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setMaximumSize(new Dimension(527, 527));
-		lblNewLabel.setIcon(new ImageIcon("icon\\SHOP.png"));
-		lblNewLabel.setPreferredSize(new Dimension(527, 527));
-		lblNewLabel.setMinimumSize(new Dimension(527, 527));
-		lblNewLabel.setBounds(222, 14, 527, 527);
-		panel.add(lblNewLabel);
-
-		
 		btnProduct.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -85,25 +73,5 @@ public class MainView extends JFrame{
 				new ProductView().setVisible(true);
 			}
 		});
-
-		btnHoaDon.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				// TODO Auto-generated method stub
-				EventQueue.invokeLater(new Runnable() {
-					public void run() {
-						try {
-							CreateInvoiceGUI frame = new CreateInvoiceGUI();
-							frame.setVisible(true);
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				});
-			}
-		});
-
 	}
 }
