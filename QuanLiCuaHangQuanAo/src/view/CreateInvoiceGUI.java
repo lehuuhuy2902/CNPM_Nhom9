@@ -96,7 +96,7 @@ public class CreateInvoiceGUI extends JFrame {
 	public void init() {
 		// SET FRAME
 
-		setSize(1261, 890);
+		setSize(1261, 799);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -106,7 +106,7 @@ public class CreateInvoiceGUI extends JFrame {
 		///
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panel.setBounds(12, 13, 183, 787);
+		panel.setBounds(12, 13, 183, 781);
 		panel.setPreferredSize(new Dimension(100, 100));
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -119,14 +119,14 @@ public class CreateInvoiceGUI extends JFrame {
 		btnProduct.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnProduct.setForeground(Color.WHITE);
 		btnProduct.setBackground(new Color(110, 211, 170));
-		btnProduct.setBounds(12, 571, 160, 72);
+		btnProduct.setBounds(12, 521, 160, 72);
 		panel.add(btnProduct);
 		
 		JButton btnCustomer = new JButton("KH\u00C1CH H\u00C0NG");
 		btnCustomer.setForeground(Color.WHITE);
 		btnCustomer.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnCustomer.setBackground(new Color(110, 211, 170));
-		btnCustomer.setBounds(12, 643, 160, 72);
+		btnCustomer.setBounds(12, 593, 160, 72);
 		panel.add(btnCustomer);
 		
 		JButton btnHoaDon = new JButton("H\u00D3A \u0110\u01A0N");
@@ -137,7 +137,7 @@ public class CreateInvoiceGUI extends JFrame {
 		btnHoaDon.setForeground(Color.WHITE);
 		btnHoaDon.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnHoaDon.setBackground(new Color(110, 211, 170));
-		btnHoaDon.setBounds(12, 715, 160, 72);
+		btnHoaDon.setBounds(12, 665, 160, 72);
 		panel.add(btnHoaDon);
 		JButton btnTrangChu = new JButton("TRANG CH\u1EE6");
 		btnTrangChu.addActionListener(new ActionListener() {
@@ -147,7 +147,7 @@ public class CreateInvoiceGUI extends JFrame {
 		btnTrangChu.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnTrangChu.setForeground(Color.WHITE);
 		btnTrangChu.setBackground(SystemColor.desktop);
-		btnTrangChu.setBounds(12, 500, 160, 72);
+		btnTrangChu.setBounds(12, 450, 160, 72);
 		panel.add(btnTrangChu);
 		
 		btnProduct.addActionListener(new ActionListener() {
@@ -161,7 +161,7 @@ public class CreateInvoiceGUI extends JFrame {
 		// PANEL HEADER (CREATE INVOICE)
 
 		JPanel panel_HD = new JPanel();
-		panel_HD.setBounds(202, 10, 1015, 400);
+		panel_HD.setBounds(202, 10, 1015, 330);
 		panel_HD.setPreferredSize(new Dimension(1000, 400));
 		panel_HD.setBorder(new TitledBorder(null, "HÓA ĐƠN", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLUE));
 		contentPane.add(panel_HD);
@@ -221,12 +221,13 @@ public class CreateInvoiceGUI extends JFrame {
 		txtTotal.setColumns(10);
 
 		JPanel panel_Total = new JPanel();
+		panel_Total.setPreferredSize(new Dimension(900, 250));
 		panel_HD.add(panel_Total, BorderLayout.CENTER);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setForeground(Color.BLACK);
 		scrollPane.setBackground(Color.WHITE);
-		scrollPane.setPreferredSize(new Dimension(900, 300));
+		scrollPane.setPreferredSize(new Dimension(900, 220));
 		panel_Total.add(scrollPane);
 
 		table = new JTable();
@@ -245,7 +246,7 @@ public class CreateInvoiceGUI extends JFrame {
 
 		// PANEL BODY (CUSTOMER INFOMATION & PAYMENT INFORMATION)
 		JPanel panel_body = new JPanel();
-		panel_body.setBounds(202, 423, 1015, 272);
+		panel_body.setBounds(202, 353, 1015, 272);
 		panel_body.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 
 		//// CUSTOMER INFOMATION
@@ -376,7 +377,7 @@ public class CreateInvoiceGUI extends JFrame {
 		panel_Payment.add(lblCost);
 
 		txtCost = new JTextField();
-		txtCost.setBounds(208, 50, 191, 25);
+		txtCost.setBounds(197, 50, 191, 25);
 		txtCost.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtCost.setColumns(10);
 		panel_Payment.add(txtCost);
@@ -386,7 +387,7 @@ public class CreateInvoiceGUI extends JFrame {
 		panel_Payment.add(lblDiscount);
 
 		txtDiscount = new JTextField();
-		txtDiscount.setBounds(208, 80, 191, 25);
+		txtDiscount.setBounds(197, 80, 191, 25);
 		txtDiscount.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtDiscount.setColumns(10);
 		panel_Payment.add(txtDiscount);
@@ -396,7 +397,7 @@ public class CreateInvoiceGUI extends JFrame {
 		panel_Payment.add(lblUse_Point);
 
 		txtUsePoint = new JTextField();
-		txtUsePoint.setBounds(208, 110, 191, 25);
+		txtUsePoint.setBounds(197, 110, 191, 25);
 		txtUsePoint.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtUsePoint.setColumns(10);
 		panel_Payment.add(txtUsePoint);
@@ -406,7 +407,7 @@ public class CreateInvoiceGUI extends JFrame {
 		panel_Payment.add(lblMust_Pay);
 
 		txtMustPay = new JTextField();
-		txtMustPay.setBounds(208, 140, 191, 25);
+		txtMustPay.setBounds(197, 140, 191, 25);
 		txtMustPay.setForeground(Color.RED);
 		txtMustPay.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtMustPay.setColumns(10);
@@ -417,7 +418,7 @@ public class CreateInvoiceGUI extends JFrame {
 		panel_Payment.add(lblCus_pay);
 
 		txtCus_Pay = new JTextField();
-		txtCus_Pay.setBounds(208, 170, 191, 25);
+		txtCus_Pay.setBounds(197, 170, 191, 25);
 		txtCus_Pay.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtCus_Pay.setColumns(10);
 		panel_Payment.add(txtCus_Pay);
@@ -427,7 +428,7 @@ public class CreateInvoiceGUI extends JFrame {
 		panel_Payment.add(lblExcess);
 
 		txtExcess = new JTextField();
-		txtExcess.setBounds(208, 200, 191, 25);
+		txtExcess.setBounds(197, 200, 191, 25);
 		txtExcess.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtExcess.setColumns(10);
 		panel_Payment.add(txtExcess);
@@ -438,8 +439,8 @@ public class CreateInvoiceGUI extends JFrame {
 
 		// PANEL FOOTER (INFORMATION OF INVOICE)
 		JPanel panel_InfoHD = new JPanel();
-		panel_InfoHD.setBounds(202, 696, 1015, 154);
-		panel_InfoHD.setPreferredSize(new Dimension(1000, 120));
+		panel_InfoHD.setBounds(202, 626, 1015, 126);
+		panel_InfoHD.setPreferredSize(new Dimension(1000, 110));
 		panel_InfoHD.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Thông tin hóa đơn",
 				TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLUE));
 		contentPane.setLayout(null);
@@ -453,50 +454,50 @@ public class CreateInvoiceGUI extends JFrame {
 		panel_InfoHD.setLayout(null);
 
 		JLabel lblDateFounded = new JLabel("Ngày lập");
-		lblDateFounded.setBounds(40, 39, 88, 19);
+		lblDateFounded.setBounds(40, 26, 88, 19);
 		lblDateFounded.setHorizontalAlignment(SwingConstants.LEFT);
 		panel_InfoHD.add(lblDateFounded);
 
 		txtDF = new JTextField();
 		txtDF.setText(new Date().currrentDate().toString());
-		txtDF.setBounds(140, 36, 199, 22);
+		txtDF.setBounds(140, 23, 199, 22);
 		txtDF.setColumns(10);
 		panel_InfoHD.add(txtDF);
 
 		JLabel lblnum_HD = new JLabel("Số hóa đơn");
 		lblnum_HD.setHorizontalAlignment(SwingConstants.LEFT);
-		lblnum_HD.setBounds(40, 74, 88, 19);
+		lblnum_HD.setBounds(40, 61, 88, 19);
 		panel_InfoHD.add(lblnum_HD);
 
 		textNumHD = new JTextField();
 		textNumHD.setColumns(10);
-		textNumHD.setBounds(140, 71, 199, 22);
+		textNumHD.setBounds(140, 58, 199, 22);
 		panel_InfoHD.add(textNumHD);
 
 		JLabel lblEmployee = new JLabel("Nhân viên");
 		lblEmployee.setHorizontalAlignment(SwingConstants.LEFT);
-		lblEmployee.setBounds(440, 40, 69, 18);
+		lblEmployee.setBounds(440, 27, 69, 18);
 		panel_InfoHD.add(lblEmployee);
 
 		txtEmployee = new JTextField();
 		txtEmployee.setText("Nguyễn Thị Hoa Cúc");
 		txtEmployee.setColumns(10);
-		txtEmployee.setBounds(545, 37, 258, 22);
+		txtEmployee.setBounds(545, 24, 258, 22);
 		panel_InfoHD.add(txtEmployee);
 
 		JLabel lblUnitName = new JLabel("Tên đơn vị");
 		lblUnitName.setHorizontalAlignment(SwingConstants.LEFT);
-		lblUnitName.setBounds(440, 75, 81, 18);
+		lblUnitName.setBounds(440, 62, 81, 18);
 		panel_InfoHD.add(lblUnitName);
 
 		txtUnitName = new JTextField();
 		txtUnitName.setText("Cửa hàng 01, Đường Nguyễn Trung Trực");
 		txtUnitName.setColumns(10);
-		txtUnitName.setBounds(545, 72, 258, 21);
+		txtUnitName.setBounds(545, 59, 258, 21);
 		panel_InfoHD.add(txtUnitName);
 
 		JButton btnSave = new JButton("Lưu");
-		btnSave.setBounds(555, 116, 97, 25);
+		btnSave.setBounds(555, 93, 97, 25);
 		panel_InfoHD.add(btnSave);
 
 		JButton btnSave_Print = new JButton("Lưu và In");
@@ -504,7 +505,7 @@ public class CreateInvoiceGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnSave_Print.setBounds(706, 116, 97, 25);
+		btnSave_Print.setBounds(706, 93, 97, 25);
 		panel_InfoHD.add(btnSave_Print);
 
 		// action
@@ -825,7 +826,7 @@ public class CreateInvoiceGUI extends JFrame {
 
 	public void updatePayment() {
 		// Tính tiền cần thanh toán
-		if (listItem.size() == 0) {
+		if (listItem == null||listItem.size() == 0) {
 			txtDiscount.setText("");
 			txtUsePoint.setText("");
 		}
