@@ -37,7 +37,7 @@ public class ProductView extends JFrame {
 	private JDateChooser dateChooser;
 	private ArrayList<Product> listProduct;
 	private ProductController controller;
-	
+
 	public ProductView() {
 		listProduct = new ArrayList<Product>();
 		controller = new ProductController();
@@ -46,10 +46,8 @@ public class ProductView extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-
 		this.setLocationRelativeTo(null);
 		contentPane.setLayout(null);
-
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 128, 128));
@@ -64,11 +62,11 @@ public class ProductView extends JFrame {
 
 		btnStaff.setBounds(0, 427, 172, 65);
 		panel.add(btnStaff);
-		
+
 		JButton btnTrangChu = new JButton("TRANG CH\u1EE6");
 		btnTrangChu.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnTrangChu.setForeground(Color.WHITE);
-		
+			
 		btnTrangChu.setBackground(SystemColor.desktop);
 		btnTrangChu.setBounds(0, 248, 172, 57);
 		panel.add(btnTrangChu);
@@ -86,7 +84,6 @@ public class ProductView extends JFrame {
 		btnCustomer.setBackground(UIManager.getColor("desktop"));
 		btnCustomer.setBounds(0, 365, 172, 65);
 		panel.add(btnCustomer);
-
 
 		JButton btnHoaDon = new JButton("H\u00D3A \u0110\u01A0N");
 		btnHoaDon.setForeground(Color.WHITE);
@@ -115,7 +112,6 @@ public class ProductView extends JFrame {
 			}
 		});
 
-
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(SystemColor.text);
 		panel_1.setBounds(172, 13, 610, 540);
@@ -127,24 +123,22 @@ public class ProductView extends JFrame {
 		lblSanPham.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblSanPham.setForeground(SystemColor.desktop);
 		panel_1.add(lblSanPham);
-		
+
 		JLabel label_ttsp = new JLabel("TH\u00D4NG TIN S\u1EA2N PH\u1EA8M");
 		label_ttsp.setBounds(22, 46, 139, 16);
 		label_ttsp.setFont(new Font("Tahoma", Font.BOLD, 13));
 		panel_1.add(label_ttsp);
 
-		
 		JLabel lblMSnPhm = new JLabel("M\u00C3 S\u1EA2N PH\u1EA8M:");
 		lblMSnPhm.setBounds(32, 75, 89, 16);
 		panel_1.add(lblMSnPhm);
-		
 
 		txt_idSanpham = new JTextField();
 		txt_idSanpham.setBounds(141, 75, 168, 22);
 		txt_idSanpham.setEditable(false);
 		panel_1.add(txt_idSanpham);
 		txt_idSanpham.setColumns(10);
-		
+
 		JLabel label_tenSanpham = new JLabel("T\u00CAN S\u1EA2N PH\u1EA8M:");
 		label_tenSanpham.setBounds(32, 110, 97, 16);
 		panel_1.add(label_tenSanpham);
@@ -154,29 +148,24 @@ public class ProductView extends JFrame {
 		txt_tenSanPham.setColumns(10);
 		panel_1.add(txt_tenSanPham);
 
-		
 		JLabel label_tenSanpham_1 = new JLabel("GI\u00C1 S\u1EA2N PH\u1EA8M:");
 		label_tenSanpham_1.setBounds(32, 142, 97, 16);
 		panel_1.add(label_tenSanpham_1);
-		
 
 		txt_gia = new JTextField();
 		txt_gia.setBounds(141, 139, 168, 22);
 		txt_gia.setColumns(10);
 		panel_1.add(txt_gia);
 
-		
 		JLabel lblNgyThm = new JLabel("NG\u00C0Y NH\u1EACP:");
 		lblNgyThm.setBounds(338, 75, 89, 16);
 		panel_1.add(lblNgyThm);
-		
 
 		dateChooser = new JDateChooser();
 		dateChooser.setBounds(430, 72, 150, 22);
 		dateChooser.setDateFormatString("yyyy-MM-dd");
 		panel_1.add(dateChooser);
 
-		
 		JLabel lblSLng = new JLabel("S\u1ED0 L\u01AF\u1EE2NG:");
 		lblSLng.setBounds(338, 107, 89, 16);
 		panel_1.add(lblSLng);
@@ -186,17 +175,15 @@ public class ProductView extends JFrame {
 		txt_SoLuong.setColumns(10);
 		panel_1.add(txt_SoLuong);
 
-		
 		JLabel lblTnhTrng = new JLabel("T\u00CCNH TR\u1EA0NG:");
 		lblTnhTrng.setBounds(338, 139, 89, 16);
 		panel_1.add(lblTnhTrng);
-		
 
 		txt_TinhTrang = new JTextField();
 		txt_TinhTrang.setBounds(430, 136, 150, 22);
 		txt_TinhTrang.setColumns(10);
 		panel_1.add(txt_TinhTrang);
-		
+
 		JButton btnThem = new JButton("TH\u00CAM");
 		btnThem.setBounds(212, 192, 76, 25);
 		btnThem.setBackground(SystemColor.desktop);
@@ -204,7 +191,7 @@ public class ProductView extends JFrame {
 
 		JButton btnXoa = new JButton("X\u00D3A");
 		btnXoa.setBounds(300, 192, 76, 25);
-		
+
 		btnXoa.setBackground(SystemColor.desktop);
 		panel_1.add(btnXoa);
 
@@ -212,7 +199,7 @@ public class ProductView extends JFrame {
 		btnSua.setBounds(398, 192, 76, 25);
 		btnSua.setBackground(SystemColor.desktop);
 		panel_1.add(btnSua);
-		
+
 		JButton btnTm = new JButton("T\u00CCM");
 		btnTm.setBounds(498, 192, 76, 25);
 		btnTm.addActionListener(new ActionListener() {
@@ -222,36 +209,25 @@ public class ProductView extends JFrame {
 		btnTm.setBackground(SystemColor.desktop);
 		panel_1.add(btnTm);
 
-		
-		
-		
 		listProduct = getProduct();
-		
 
 		AbstractTableModel tableModel = new AbstractTableModel() {
 			@Override
 			public Object getValueAt(int rowIndex, int columnIndex) {
 				Product product = listProduct.get(rowIndex);
-
-				if(columnIndex == 0) {
-
+				if (columnIndex == 0) {
 					return product.getId();
-				}
-				else if(columnIndex == 1) {
+				} else if (columnIndex == 1) {
 					return product.getName();
-				}
-				else if(columnIndex == 2) {
+				} else if (columnIndex == 2) {
 					return product.getPrice();
-				}
-				else if(columnIndex == 3) {
+				} else if (columnIndex == 3) {
 					return product.getAddDate();
-				}
-				else if(columnIndex == 4) {
+				} else if (columnIndex == 4) {
 					return product.getQuatity();
-				}
-				else if(columnIndex == 5) {
+				} else if (columnIndex == 5) {
 					return product.getStatus();
-					
+
 				}
 				return null;
 			}
@@ -260,51 +236,46 @@ public class ProductView extends JFrame {
 			public int getRowCount() {
 				return listProduct.size();
 			}
-			
+
 			@Override
 			public int getColumnCount() {
 				return 6;
 			}
 		};
 
-		
-		
-		//phan header cua jtable
-
+		// phan header cua jtable
 		DefaultTableColumnModel tableColumnModel = new DefaultTableColumnModel();
 
 		TableColumn clMaSP = new TableColumn();
 		clMaSP.setHeaderValue("Mã SP");
 		clMaSP.setWidth(101);
 		tableColumnModel.addColumn(clMaSP);
-		
-		
+
 		TableColumn clTenSP = new TableColumn();
 		clTenSP.setHeaderValue("Tên SP");
 		clTenSP.setWidth(101);
 		tableColumnModel.addColumn(clTenSP);
-		
+
 		TableColumn clGia = new TableColumn();
 		clGia.setHeaderValue("Gia");
 		clGia.setWidth(101);
 		tableColumnModel.addColumn(clGia);
-		
+
 		TableColumn clNgayNhap = new TableColumn();
 		clNgayNhap.setHeaderValue("Ngày Nhập");
 		clNgayNhap.setWidth(101);
 		tableColumnModel.addColumn(clNgayNhap);
-		
+
 		TableColumn clSoLuong = new TableColumn();
 		clSoLuong.setHeaderValue("Số lượng");
 		clSoLuong.setWidth(101);
 		tableColumnModel.addColumn(clSoLuong);
-		
+
 		TableColumn clTinhTrang = new TableColumn();
 		clTinhTrang.setHeaderValue("Tình trạng");
 		clTinhTrang.setWidth(101);
 		tableColumnModel.addColumn(clTinhTrang);
-	
-		
+
 		table = new JTable();
 		table.setModel(tableModel);
 		JTableHeader header = new JTableHeader(tableColumnModel);
