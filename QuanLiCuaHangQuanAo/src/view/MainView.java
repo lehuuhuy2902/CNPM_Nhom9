@@ -1,12 +1,18 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 
@@ -66,7 +72,6 @@ public class MainView extends JFrame{
 		btnHoaDon.setBounds(0, 488, 172, 65);
 		panel.add(btnHoaDon);
 		
-
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setMaximumSize(new Dimension(527, 527));
 		lblNewLabel.setIcon(new ImageIcon("icon\\SHOP.png"));
@@ -75,7 +80,6 @@ public class MainView extends JFrame{
 		lblNewLabel.setBounds(222, 14, 527, 527);
 		panel.add(lblNewLabel);
 		
-
 		btnProduct.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -101,6 +105,5 @@ public class MainView extends JFrame{
 				});
 			}
 		});
-
 	}
 }
