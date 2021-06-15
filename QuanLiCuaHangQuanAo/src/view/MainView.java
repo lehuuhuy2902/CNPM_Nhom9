@@ -32,7 +32,6 @@ public class MainView extends JFrame{
 		panel.setBounds(0, 0, 782, 553);
 		contentPane.add(panel);
 		panel.setLayout(null);
-
 		
 		JButton btnStaff = new JButton("NH\u00C2N VI\u00CAN");
 		btnStaff.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -76,7 +75,6 @@ public class MainView extends JFrame{
 		lblNewLabel.setMinimumSize(new Dimension(527, 527));
 		lblNewLabel.setBounds(222, 14, 527, 527);
 		panel.add(lblNewLabel);
-
 		
 		btnProduct.addActionListener(new ActionListener() {
 			@Override
@@ -85,7 +83,6 @@ public class MainView extends JFrame{
 				new ProductView().setVisible(true);
 			}
 		});
-
 		btnHoaDon.addActionListener(new ActionListener() {
 			
 			@Override
@@ -104,6 +101,5 @@ public class MainView extends JFrame{
 				});
 			}
 		});
-
 	}
 }
