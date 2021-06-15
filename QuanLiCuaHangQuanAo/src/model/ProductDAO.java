@@ -18,7 +18,7 @@ public class ProductDAO {
 	public boolean updateProduct(Product p) {
 		
 		
-		String sql = "update product set name = ?, price= ?, addDate = ?, quatity = ?, status = ? where idPro = ?";
+		String sql = "update product set name = ?, price= ?, addDate = ?, quatity = ?, status = ? where id = ?";
 		
 		PreparedStatement s;
 		try {
@@ -46,7 +46,7 @@ public class ProductDAO {
 			s = ConnectionDB.connect();
 			ResultSet rs = s.executeQuery("select * from product");
 			while(rs.next()) {
-				listProduct.add(new Product(rs.getString(1), rs.getString(2), rs.getDouble(3), rs.getString(4), rs.getInt(5), rs.getString(6)));
+				listProduct.add(new Product(rs.getString(1), rs.getString(2), rs.getDouble(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
 				
 			}
 			

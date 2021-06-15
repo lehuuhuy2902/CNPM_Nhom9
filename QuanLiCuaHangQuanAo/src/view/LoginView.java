@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -36,7 +37,7 @@ public class LoginView extends JFrame{
 		title.setOpaque(true);
 		title.setBorder(new EmptyBorder(0,20,0,0));
 		title.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 40));
-		title.setForeground(new Color(0, 11, 106));
+		title.setForeground(SystemColor.desktop);
 		panel.add(title);
 		
 		
@@ -63,7 +64,7 @@ public class LoginView extends JFrame{
 		buttonLogin = new JButton("Login");
 		buttonLogin.setBounds(230, 345, 300, 30);
 		buttonLogin.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
-		buttonLogin.setBackground(new Color(0, 11, 106));
+		buttonLogin.setBackground(SystemColor.desktop);
 		buttonLogin.setForeground(new Color(255, 255, 255));
 		panel.add(buttonLogin);
 		

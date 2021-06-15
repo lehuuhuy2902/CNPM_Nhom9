@@ -11,7 +11,7 @@ import java.util.Date;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-
+import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -41,8 +41,9 @@ public class ProductView extends JFrame {
 	public ProductView() {
 		listProduct = new ArrayList<Product>();
 		controller = new ProductController();
+		setTitle("Quản lí sản phẩm");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 850, 580);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -50,48 +51,48 @@ public class ProductView extends JFrame {
 		contentPane.setLayout(null);
 
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 128, 128));
-		panel.setBounds(0, 0, 782, 553);
+		panel.setBackground(new Color(238,238,238));
+		panel.setBounds(0, 0, 800, 500);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
-		JButton btnStaff = new JButton("NH\u00C2N VI\u00CAN");
-		btnStaff.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnStaff.setForeground(Color.WHITE);
-		btnStaff.setBackground(UIManager.getColor("desktop"));
-
-		btnStaff.setBounds(0, 427, 172, 65);
-		panel.add(btnStaff);
+		
 
 		JButton btnTrangChu = new JButton("TRANG CH\u1EE6");
 		btnTrangChu.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnTrangChu.setForeground(Color.WHITE);
-			
-		btnTrangChu.setBackground(SystemColor.desktop);
-		btnTrangChu.setBounds(0, 248, 172, 57);
+		btnTrangChu.setBackground(new Color(110, 211, 170));
+		btnTrangChu.setBounds(5, 155, 172, 70);
 		panel.add(btnTrangChu);
 
 		JButton btnProduct = new JButton("S\u1EA2N PH\u1EA8M");
 		btnProduct.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnProduct.setForeground(Color.WHITE);
-		btnProduct.setBackground(UIManager.getColor("desktop"));
-		btnProduct.setBounds(0, 304, 172, 65);
+		btnProduct.setBackground(SystemColor.desktop);
+		btnProduct.setBounds(5, 225, 172, 70);
 		panel.add(btnProduct);
 
 		JButton btnCustomer = new JButton("KH\u00C1CH H\u00C0NG");
 		btnCustomer.setForeground(Color.WHITE);
 		btnCustomer.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnCustomer.setBackground(UIManager.getColor("desktop"));
-		btnCustomer.setBounds(0, 365, 172, 65);
+		btnCustomer.setBackground(new Color(110, 211, 170));
+		btnCustomer.setBounds(5, 295, 172, 70);
 		panel.add(btnCustomer);
 
 		JButton btnHoaDon = new JButton("H\u00D3A \u0110\u01A0N");
 		btnHoaDon.setForeground(Color.WHITE);
 		btnHoaDon.setFont(new Font("Tahoma", Font.BOLD, 16));
-
-		btnHoaDon.setBackground(UIManager.getColor("desktop"));
-		btnHoaDon.setBounds(0, 488, 172, 65);
+		btnHoaDon.setBackground(new Color(110, 211, 170));
+		btnHoaDon.setBounds(5, 365, 172, 70);
 		panel.add(btnHoaDon);
+		
+		JButton btnStaff = new JButton("NH\u00C2N VI\u00CAN");
+		btnStaff.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btnStaff.setForeground(Color.WHITE);
+		btnStaff.setBackground(new Color(110, 211, 170));
+		btnStaff.setBounds(5, 435, 172, 70);
+		panel.add(btnStaff);
+		
 		//ACTION
 		btnHoaDon.addActionListener(new ActionListener() {
 
@@ -113,101 +114,103 @@ public class ProductView extends JFrame {
 		});
 
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(SystemColor.text);
-		panel_1.setBounds(172, 13, 610, 540);
+		panel_1.setBackground(Color.WHITE);
+		panel_1.setBounds(180, 13, 650, 540);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
+		
+		JPanel panel_sp = new JPanel();
+		panel_sp.setBackground(Color.white);
+		panel_sp.setBounds(5, 40, 600, 200);
+		panel_sp.setLayout(null);
+		panel_1.add(panel_sp);
+		panel_sp.setBorder(new TitledBorder(null, "THÔNG TIN SẢN PHẨM", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
 
 		JLabel lblSanPham = new JLabel("S\u1EA2N PH\u1EA8M");
 		lblSanPham.setBounds(22, 13, 95, 26);
 		lblSanPham.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblSanPham.setForeground(SystemColor.desktop);
-		panel_1.add(lblSanPham);
-
-		JLabel label_ttsp = new JLabel("TH\u00D4NG TIN S\u1EA2N PH\u1EA8M");
-		label_ttsp.setBounds(22, 46, 139, 16);
-		label_ttsp.setFont(new Font("Tahoma", Font.BOLD, 13));
-		panel_1.add(label_ttsp);
+		panel_1.add(lblSanPham);;
 
 		JLabel lblMSnPhm = new JLabel("M\u00C3 S\u1EA2N PH\u1EA8M:");
-		lblMSnPhm.setBounds(32, 75, 89, 16);
-		panel_1.add(lblMSnPhm);
+		lblMSnPhm.setBounds(32, 25, 89, 16);
+		panel_sp.add(lblMSnPhm);
 
 		txt_idSanpham = new JTextField();
-		txt_idSanpham.setBounds(141, 75, 168, 22);
+		txt_idSanpham.setBounds(141, 22, 168, 22);
 		txt_idSanpham.setEditable(false);
-		panel_1.add(txt_idSanpham);
+		panel_sp.add(txt_idSanpham);
 		txt_idSanpham.setColumns(10);
 
 		JLabel label_tenSanpham = new JLabel("T\u00CAN S\u1EA2N PH\u1EA8M:");
-		label_tenSanpham.setBounds(32, 110, 97, 16);
-		panel_1.add(label_tenSanpham);
+		label_tenSanpham.setBounds(32, 60, 97, 16);
+		panel_sp.add(label_tenSanpham);
 
 		txt_tenSanPham = new JTextField();
-		txt_tenSanPham.setBounds(141, 107, 168, 22);
+		txt_tenSanPham.setBounds(141, 57, 168, 22);
 		txt_tenSanPham.setColumns(10);
-		panel_1.add(txt_tenSanPham);
+		panel_sp.add(txt_tenSanPham);
 
 		JLabel label_tenSanpham_1 = new JLabel("GI\u00C1 S\u1EA2N PH\u1EA8M:");
-		label_tenSanpham_1.setBounds(32, 142, 97, 16);
-		panel_1.add(label_tenSanpham_1);
+		label_tenSanpham_1.setBounds(32, 95, 97, 16);
+		panel_sp.add(label_tenSanpham_1);
 
 		txt_gia = new JTextField();
-		txt_gia.setBounds(141, 139, 168, 22);
+		txt_gia.setBounds(141, 92, 168, 22);
 		txt_gia.setColumns(10);
-		panel_1.add(txt_gia);
+		panel_sp.add(txt_gia);
 
 		JLabel lblNgyThm = new JLabel("NG\u00C0Y NH\u1EACP:");
-		lblNgyThm.setBounds(338, 75, 89, 16);
-		panel_1.add(lblNgyThm);
+		lblNgyThm.setBounds(338, 25, 89, 16);
+		panel_sp.add(lblNgyThm);
 
 		dateChooser = new JDateChooser();
-		dateChooser.setBounds(430, 72, 150, 22);
+		dateChooser.setBounds(430, 22, 150, 22);
 		dateChooser.setDateFormatString("yyyy-MM-dd");
-		panel_1.add(dateChooser);
+		panel_sp.add(dateChooser);
 
 		JLabel lblSLng = new JLabel("S\u1ED0 L\u01AF\u1EE2NG:");
-		lblSLng.setBounds(338, 107, 89, 16);
-		panel_1.add(lblSLng);
+		lblSLng.setBounds(338, 60, 89, 16);
+		panel_sp.add(lblSLng);
 
 		txt_SoLuong = new JTextField();
-		txt_SoLuong.setBounds(430, 104, 150, 22);
+		txt_SoLuong.setBounds(430, 57, 150, 22);
 		txt_SoLuong.setColumns(10);
-		panel_1.add(txt_SoLuong);
+		panel_sp.add(txt_SoLuong);
 
 		JLabel lblTnhTrng = new JLabel("T\u00CCNH TR\u1EA0NG:");
-		lblTnhTrng.setBounds(338, 139, 89, 16);
-		panel_1.add(lblTnhTrng);
+		lblTnhTrng.setBounds(338, 95, 89, 16);
+		panel_sp.add(lblTnhTrng);
 
 		txt_TinhTrang = new JTextField();
-		txt_TinhTrang.setBounds(430, 136, 150, 22);
+		txt_TinhTrang.setBounds(430, 92, 150, 22);
 		txt_TinhTrang.setColumns(10);
-		panel_1.add(txt_TinhTrang);
+		panel_sp.add(txt_TinhTrang);
 
 		JButton btnThem = new JButton("TH\u00CAM");
-		btnThem.setBounds(212, 192, 76, 25);
+		btnThem.setBounds(212, 135, 76, 25);
 		btnThem.setBackground(SystemColor.desktop);
-		panel_1.add(btnThem);
+		btnThem.setForeground(Color.WHITE);
+		panel_sp.add(btnThem);
 
 		JButton btnXoa = new JButton("X\u00D3A");
-		btnXoa.setBounds(300, 192, 76, 25);
-
-		btnXoa.setBackground(SystemColor.desktop);
-		panel_1.add(btnXoa);
+		btnXoa.setBounds(300,135, 76, 25);
+		btnXoa.setForeground(Color.WHITE);
+		btnXoa.setBackground(new Color(182,0,59));
+		panel_sp.add(btnXoa);
 
 		JButton btnSua = new JButton("S\u1EECA");
-		btnSua.setBounds(398, 192, 76, 25);
+		btnSua.setBounds(398, 135, 76, 25);
 		btnSua.setBackground(SystemColor.desktop);
-		panel_1.add(btnSua);
+		btnSua.setForeground(Color.WHITE);
+		panel_sp.add(btnSua);
 
 		JButton btnTm = new JButton("T\u00CCM");
-		btnTm.setBounds(498, 192, 76, 25);
-		btnTm.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btnTm.setBounds(498, 135, 76, 25);
 		btnTm.setBackground(SystemColor.desktop);
-		panel_1.add(btnTm);
+		btnTm.setForeground(Color.WHITE);
+		panel_sp.add(btnTm);
+		
 
 		listProduct = getProduct();
 
@@ -248,32 +251,32 @@ public class ProductView extends JFrame {
 
 		TableColumn clMaSP = new TableColumn();
 		clMaSP.setHeaderValue("Mã SP");
-		clMaSP.setWidth(101);
+		clMaSP.setWidth(99);
 		tableColumnModel.addColumn(clMaSP);
 
 		TableColumn clTenSP = new TableColumn();
 		clTenSP.setHeaderValue("Tên SP");
-		clTenSP.setWidth(101);
+		clTenSP.setWidth(99);
 		tableColumnModel.addColumn(clTenSP);
 
 		TableColumn clGia = new TableColumn();
-		clGia.setHeaderValue("Gia");
-		clGia.setWidth(101);
+		clGia.setHeaderValue("Giá");
+		clGia.setWidth(99);
 		tableColumnModel.addColumn(clGia);
 
 		TableColumn clNgayNhap = new TableColumn();
 		clNgayNhap.setHeaderValue("Ngày Nhập");
-		clNgayNhap.setWidth(101);
+		clNgayNhap.setWidth(98);
 		tableColumnModel.addColumn(clNgayNhap);
 
 		TableColumn clSoLuong = new TableColumn();
 		clSoLuong.setHeaderValue("Số lượng");
-		clSoLuong.setWidth(101);
+		clSoLuong.setWidth(99);
 		tableColumnModel.addColumn(clSoLuong);
 
 		TableColumn clTinhTrang = new TableColumn();
 		clTinhTrang.setHeaderValue("Tình trạng");
-		clTinhTrang.setWidth(101);
+		clTinhTrang.setWidth(105);
 		tableColumnModel.addColumn(clTinhTrang);
 
 		table = new JTable();
@@ -282,7 +285,7 @@ public class ProductView extends JFrame {
 		table.setTableHeader(header);
 
 		JScrollPane scollPane = new JScrollPane(table);
-		scollPane.setBounds(0, 276, 610, 264);
+		scollPane.setBounds(10, 276, 610, 200);
 		panel_1.add(scollPane);
 
 		// bat su kien click vao jtable

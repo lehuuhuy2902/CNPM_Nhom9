@@ -72,20 +72,20 @@ public class CreateInvoiceGUI extends JFrame {
 	private JCheckBox cbxTD;
 
 	
-	public static void main(String[] args) {
-		//System.out.println(CreateInvoiceGUI.changeToPoint((int)1568120));
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CreateInvoiceGUI frame = new CreateInvoiceGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-
-	}
+//	public static void main(String[] args) {
+//		//System.out.println(CreateInvoiceGUI.changeToPoint((int)1568120));
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					CreateInvoiceGUI frame = new CreateInvoiceGUI();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//
+//	}
 
 	public CreateInvoiceGUI() {
 		init();
