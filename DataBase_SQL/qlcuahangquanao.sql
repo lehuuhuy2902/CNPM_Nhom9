@@ -127,12 +127,12 @@ CREATE TABLE `user`  (
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `status` int(255) NULL DEFAULT NULL
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
-create table student (
+create table employee (
 	id int primary key auto_increment,
 	fullname varchar(50) not null,
 	gender varchar(15),
 	age int,
-	email varchar(150),
+	position varchar(150),
 	phone_number varchar(15)
 )
 -- ----------------------------
