@@ -20,7 +20,7 @@ import javax.swing.border.EmptyBorder;
 public class MainView extends JFrame{
 	private JPanel contentPane;
 	private String username;
-	public MainView(String username) {
+	public MainView() {
 		
 		setTitle("Phần mềm quản lí cửa hàng quần áo");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,6 +29,7 @@ public class MainView extends JFrame{
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(245, 245, 245));
@@ -46,35 +47,28 @@ public class MainView extends JFrame{
 		btnTrangChu.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnTrangChu.setForeground(Color.WHITE);
 		btnTrangChu.setBackground(SystemColor.desktop);
-		btnTrangChu.setBounds(20, 150, 172, 70);
+		btnTrangChu.setBounds(20, 220, 172, 70);
 		panel.add(btnTrangChu);
 		
 		JButton btnProduct = new JButton("S\u1EA2N PH\u1EA8M");
 		btnProduct.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnProduct.setForeground(Color.WHITE);
 		btnProduct.setBackground(new Color(110, 211, 170));
-		btnProduct.setBounds(20, 220, 172, 70);
+		btnProduct.setBounds(20, 290, 172, 70);
 		panel.add(btnProduct);
-		
-		JButton btnCustomer = new JButton("KH\u00C1CH H\u00C0NG");
-		btnCustomer.setForeground(Color.WHITE);
-		btnCustomer.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnCustomer.setBackground(new Color(110, 211, 170));
-		btnCustomer.setBounds(20, 290, 172, 70);
-		panel.add(btnCustomer);
 		
 		JButton btnHoaDon = new JButton("H\u00D3A \u0110\u01A0N");
 		btnHoaDon.setForeground(Color.WHITE);
 		btnHoaDon.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnHoaDon.setBackground(new Color(110, 211, 170));
-		btnHoaDon.setBounds(20, 360, 172, 70);
+		btnHoaDon.setBounds(20, 430, 172, 70);
 		panel.add(btnHoaDon);
 		
 		JButton btnStaff = new JButton("NH\u00C2N VI\u00CAN");
 		btnStaff.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnStaff.setForeground(Color.WHITE);
 		btnStaff.setBackground(new Color(110, 211, 170));
-		btnStaff.setBounds(20, 430, 172, 70);
+		btnStaff.setBounds(20, 360, 172, 70);
 		panel.add(btnStaff);
 		
 		JLabel lblNewLabel = new JLabel("New label");
@@ -118,6 +112,25 @@ public class MainView extends JFrame{
 						}
 					}
 				});
+			}
+		});
+		btnStaff.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				// TODO Auto-generated method stub
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							EmployeeFrame frame = new EmployeeFrame();
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				
 			}
 		});
 	}

@@ -86,23 +86,21 @@ public class LoginView extends JFrame{
 		});
 		
 		buttonLogin.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String username = usernameTF.getText();
-				String password = passwordF.getText();
-				boolean result = controller.checkLogin(username, password);
-				if(result) {
-					setVisible(false);
-					MainView m = new MainView(username);
-					m.setVisible(true);
-					m.setLocationRelativeTo(null);
-				}
-				else {
-					JOptionPane.showMessageDialog(panel, "Đăng nhập không thành công, vui lòng đăng nhập lại");
-					
-				}
-				
+					String username = usernameTF.getText();
+					String password = passwordF.getText();
+					boolean result = controller.checkLogin(username, password);
+					if(result) {
+						setVisible(false);
+						MainView m = new MainView();
+						m.setVisible(true);
+						m.setLocationRelativeTo(null);
+					}
+					else {
+						JOptionPane.showMessageDialog(panel, "Đăng nhập không thành công, vui lòng đăng nhập lại");
+						
+					}
 			}
 		});
 		

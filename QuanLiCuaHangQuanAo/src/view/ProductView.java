@@ -62,35 +62,28 @@ public class ProductView extends JFrame {
 		btnTrangChu.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnTrangChu.setForeground(Color.WHITE);
 		btnTrangChu.setBackground(new Color(110, 211, 170));
-		btnTrangChu.setBounds(5, 155, 172, 70);
+		btnTrangChu.setBounds(5, 225, 172, 70);
 		panel.add(btnTrangChu);
 
 		JButton btnProduct = new JButton("S\u1EA2N PH\u1EA8M");
 		btnProduct.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnProduct.setForeground(Color.WHITE);
 		btnProduct.setBackground(SystemColor.desktop);
-		btnProduct.setBounds(5, 225, 172, 70);
+		btnProduct.setBounds(5, 295, 172, 70);
 		panel.add(btnProduct);
-
-		JButton btnCustomer = new JButton("KH\u00C1CH H\u00C0NG");
-		btnCustomer.setForeground(Color.WHITE);
-		btnCustomer.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnCustomer.setBackground(new Color(110, 211, 170));
-		btnCustomer.setBounds(5, 295, 172, 70);
-		panel.add(btnCustomer);
 
 		JButton btnHoaDon = new JButton("H\u00D3A \u0110\u01A0N");
 		btnHoaDon.setForeground(Color.WHITE);
 		btnHoaDon.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnHoaDon.setBackground(new Color(110, 211, 170));
-		btnHoaDon.setBounds(5, 365, 172, 70);
+		btnHoaDon.setBounds(5, 435, 172, 70);
 		panel.add(btnHoaDon);
 		
 		JButton btnStaff = new JButton("NH\u00C2N VI\u00CAN");
 		btnStaff.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnStaff.setForeground(Color.WHITE);
 		btnStaff.setBackground(new Color(110, 211, 170));
-		btnStaff.setBounds(5, 435, 172, 70);
+		btnStaff.setBounds(5, 365, 172, 70);
 		panel.add(btnStaff);
 		
 		//ACTION
@@ -104,6 +97,43 @@ public class ProductView extends JFrame {
 					public void run() {
 						try {
 							CreateInvoiceGUI frame = new CreateInvoiceGUI();
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+		});
+		btnTrangChu.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				// TODO Auto-generated method stub
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							MainView frame = new MainView();
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				
+			}
+		});
+		btnStaff.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				// TODO Auto-generated method stub
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							EmployeeFrame frame = new EmployeeFrame();
 							frame.setVisible(true);
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -328,27 +358,48 @@ public class ProductView extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					int row = table.getSelectedRow();
-					Product p = listProduct.get(row);
-					p.setName(txt_tenSanPham.getText().trim());
-					p.setPrice(Double.parseDouble(txt_gia.getText().trim()));
-					p.setQuatity(Integer.parseInt(txt_SoLuong.getText().trim()));
-					p.setStatus(txt_TinhTrang.getText().trim());
-
-					String date = new SimpleDateFormat("yyyy-MM-dd").format(dateChooser.getDate());
-					p.setAddDate(date);
-					table.repaint();
-
-					boolean check = controller.updateProduct(p);
-
-					if (!check) {
-						JOptionPane.showMessageDialog(panel,
-								"Cập nhật thông tin sản phẩm thất bại, vui lòng cập nhật lại!");
-
-					} else {
-						JOptionPane.showMessageDialog(panel, "Sản phẩm đã cập nhật thông tin thành công");
+					if(txt_idSanpham.getText().equals("")) {
+						JOptionPane.showMessageDialog(panel, "Phải chọn sản phẩm trong bảng trước khi nhấn nút Sửa");
 					}
+					else {
+						if(Double.parseDouble(txt_gia.getText().trim()) <= 0) {
+							JOptionPane.showMessageDialog(panel, "Giá bán phải > 0");
+							txt_gia.setText("");
+						}
+						else if(Integer.parseInt(txt_SoLuong.getText().trim()) <0) {
+							JOptionPane.showMessageDialog(panel, "Số lượng không được phép là số âm");
+							txt_SoLuong.setText("");
+						}
+						else {
+							int row = table.getSelectedRow();
+							Product p = listProduct.get(row);
+							p.setName(txt_tenSanPham.getText().trim());
+							p.setPrice(Double.parseDouble(txt_gia.getText().trim()));
+							p.setQuatity(Integer.parseInt(txt_SoLuong.getText().trim()));
+							p.setStatus(txt_TinhTrang.getText().trim());
+							try {
+								String date = new SimpleDateFormat("yyyy-MM-dd").format(dateChooser.getDate());
+								p.setAddDate(date);
+								table.repaint();
 
+								boolean check = controller.updateProduct(p);
+
+								if (!check) {
+									JOptionPane.showMessageDialog(panel,
+											"Cập nhật thông tin sản phẩm thất bại, vui lòng cập nhật lại!");
+
+								} else {
+									JOptionPane.showMessageDialog(panel, "Sản phẩm đã cập nhật thông tin thành công");
+								}
+							} catch (Exception e) {
+								JOptionPane.showMessageDialog(panel, "Ngày nhập không đúng theo định dạng, vui lòng nhập lại");
+								
+							}
+							
+							
+						}
+					}
+					
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(panel, "Dữ liệu sửa phải là số, vui lòng cập nhật lại!");
 				}

@@ -122,12 +122,19 @@ public class CreateInvoiceGUI extends JFrame {
 		btnProduct.setBounds(12, 521, 160, 72);
 		panel.add(btnProduct);
 		
-		JButton btnCustomer = new JButton("KH\u00C1CH H\u00C0NG");
-		btnCustomer.setForeground(Color.WHITE);
-		btnCustomer.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnCustomer.setBackground(new Color(110, 211, 170));
-		btnCustomer.setBounds(12, 593, 160, 72);
-		panel.add(btnCustomer);
+		JButton btnStaff = new JButton("KH\u00C1CH H\u00C0NG");
+		btnStaff.setForeground(Color.WHITE);
+		btnStaff.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btnStaff.setBackground(new Color(110, 211, 170));
+		btnStaff.setBounds(12, 593, 160, 72);
+		btnStaff.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				new EmployeeFrame().setVisible(true);
+			}
+		});
+		panel.add(btnStaff);
 		
 		JButton btnHoaDon = new JButton("H\u00D3A \u0110\u01A0N");
 		btnHoaDon.addActionListener(new ActionListener() {
@@ -136,17 +143,19 @@ public class CreateInvoiceGUI extends JFrame {
 		});
 		btnHoaDon.setForeground(Color.WHITE);
 		btnHoaDon.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnHoaDon.setBackground(new Color(110, 211, 170));
+		btnHoaDon.setBackground(SystemColor.desktop);
 		btnHoaDon.setBounds(12, 665, 160, 72);
 		panel.add(btnHoaDon);
 		JButton btnTrangChu = new JButton("TRANG CH\u1EE6");
 		btnTrangChu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				new MainView().setVisible(true);
 			}
 		});
 		btnTrangChu.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnTrangChu.setForeground(Color.WHITE);
-		btnTrangChu.setBackground(SystemColor.desktop);
+		btnTrangChu.setBackground(new Color(110, 211, 170));
 		btnTrangChu.setBounds(12, 450, 160, 72);
 		panel.add(btnTrangChu);
 		
