@@ -122,7 +122,7 @@ public class CreateInvoiceGUI extends JFrame {
 		btnProduct.setBounds(12, 521, 160, 72);
 		panel.add(btnProduct);
 		
-		JButton btnStaff = new JButton("KH\u00C1CH H\u00C0NG");
+		JButton btnStaff = new JButton("NHÂN VIÊN");
 		btnStaff.setForeground(Color.WHITE);
 		btnStaff.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnStaff.setBackground(new Color(110, 211, 170));
