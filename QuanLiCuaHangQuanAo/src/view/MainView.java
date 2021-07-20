@@ -73,7 +73,8 @@ public class MainView extends JFrame{
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setMaximumSize(new Dimension(527, 527));
-		lblNewLabel.setIcon(new ImageIcon("icon\\SHOP.png"));
+		java.net.URL logoOneUrl = getClass().getResource("/SHOP.png");
+		lblNewLabel.setIcon(new ImageIcon(logoOneUrl));
 		lblNewLabel.setPreferredSize(new Dimension(527, 527));
 		lblNewLabel.setMinimumSize(new Dimension(527, 527));
 		lblNewLabel.setBounds(222, 100, 527, 527);

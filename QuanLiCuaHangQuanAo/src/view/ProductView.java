@@ -358,46 +358,60 @@ public class ProductView extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
+					String name = txt_tenSanPham.getText().trim();
+					String price = txt_gia.getText().trim();
+					String quatity = txt_SoLuong.getText().trim();
+					String status = txt_TinhTrang.getText().trim();
+					
 					if(txt_idSanpham.getText().equals("")) {
 						JOptionPane.showMessageDialog(panel, "Phải chọn sản phẩm trong bảng trước khi nhấn nút Sửa");
 					}
 					else {
-						if(Double.parseDouble(txt_gia.getText().trim()) <= 0) {
-							JOptionPane.showMessageDialog(panel, "Giá bán phải > 0");
-							txt_gia.setText("");
-						}
-						else if(Integer.parseInt(txt_SoLuong.getText().trim()) <0) {
-							JOptionPane.showMessageDialog(panel, "Số lượng không được phép là số âm");
-							txt_SoLuong.setText("");
+						if(name.equals("") || price.equals("") || quatity.equals("") || status.equals("")) {
+							JOptionPane.showMessageDialog(panel, "Vui lòng nhập đầy đủ thông tin trước khi nhấn nút Sửa");
 						}
 						else {
-							int row = table.getSelectedRow();
-							Product p = listProduct.get(row);
-							p.setName(txt_tenSanPham.getText().trim());
-							p.setPrice(Double.parseDouble(txt_gia.getText().trim()));
-							p.setQuatity(Integer.parseInt(txt_SoLuong.getText().trim()));
-							p.setStatus(txt_TinhTrang.getText().trim());
-							try {
-								String date = new SimpleDateFormat("yyyy-MM-dd").format(dateChooser.getDate());
-								p.setAddDate(date);
-								table.repaint();
+							if(Double.parseDouble(txt_gia.getText().trim()) <= 0) {
+								JOptionPane.showMessageDialog(panel, "Giá bán phải > 0");
+								txt_gia.setText("");
+							}
+							else if(Integer.parseInt(txt_SoLuong.getText().trim()) <0) {
+								JOptionPane.showMessageDialog(panel, "Số lượng không được phép là số âm");
+								txt_SoLuong.setText("");
+							}
+							else {
+								try {
+									if(dateChooser.getDate().compareTo(new Date()) > 0) {
+										JOptionPane.showMessageDialog(panel, "Ngày nhập chưa hợp lệ");
+									}else {
+										int row = table.getSelectedRow();
+										Product p = listProduct.get(row);
+										p.setName(txt_tenSanPham.getText().trim());
+										p.setPrice(Double.parseDouble(txt_gia.getText().trim()));
+										p.setQuatity(Integer.parseInt(txt_SoLuong.getText().trim()));
+										p.setStatus(txt_TinhTrang.getText().trim());
+										String date = new SimpleDateFormat("yyyy-MM-dd").format(dateChooser.getDate());
+										p.setAddDate(date);
+										table.repaint();
+										boolean check = controller.updateProduct(p);
+										if (!check) {
+											JOptionPane.showMessageDialog(panel,
+													"Cập nhật thông tin sản phẩm thất bại, vui lòng cập nhật lại!");
 
-								boolean check = controller.updateProduct(p);
-
-								if (!check) {
-									JOptionPane.showMessageDialog(panel,
-											"Cập nhật thông tin sản phẩm thất bại, vui lòng cập nhật lại!");
-
-								} else {
-									JOptionPane.showMessageDialog(panel, "Sản phẩm đã cập nhật thông tin thành công");
+										} else {
+											JOptionPane.showMessageDialog(panel, "Sản phẩm đã cập nhật thông tin thành công");
+										}
+									}
+									
+								} catch (Exception e) {
+									JOptionPane.showMessageDialog(panel, "Ngày nhập không đúng theo định dạng, vui lòng nhập lại");
+									
 								}
-							} catch (Exception e) {
-								JOptionPane.showMessageDialog(panel, "Ngày nhập không đúng theo định dạng, vui lòng nhập lại");
 								
 							}
 							
-							
 						}
+						
 					}
 					
 				} catch (Exception e) {
