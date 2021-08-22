@@ -16,7 +16,7 @@ import model.EmployeeModify;
 
 /**
  *
- * @author Diep.Tran
+ * 
  */
 public class EmployeeFrame extends javax.swing.JFrame {
 	DefaultTableModel tableModel;
