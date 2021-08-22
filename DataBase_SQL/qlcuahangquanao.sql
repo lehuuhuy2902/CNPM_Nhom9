@@ -36,7 +36,7 @@ CREATE TABLE `customer`  (
 -- ----------------------------
 -- Records of customer
 -- ----------------------------
-INSERT INTO `customer` VALUES ('C000', 'Khách Vãng Lai', '0000000000', '', 0, '', 'vanglai@gmail.com', '');
+INSERT INTO `customer` VALUES ('C000', 'Khách Vãng Lai', '0000000000', '', 0, '1900-01-01', 'vanglai@gmail.com', '1900-01-01');
 INSERT INTO `customer` VALUES ('C001', 'Nguyễn Thị Thủy', '0237569411', 'Thành viên Vàng', 3038, '2022-06-08', 'thuy@gmail.com', '1985-02-21');
 INSERT INTO `customer` VALUES ('C002', 'Trần Lê Hòa Nam', '0985611455', 'Thành viên Đồng', 1258, '2022-06-08', 'nam@gmail.com', '2000-02-19');
 INSERT INTO `customer` VALUES ('C003', 'Lâm Lệ Châu', '0155214455', 'Thành viên Đồng', 2014, '2022-06-08', 'chau@gmail.com', '2004-02-01');
