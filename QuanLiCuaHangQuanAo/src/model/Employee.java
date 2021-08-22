@@ -8,7 +8,7 @@ package model;
 
 /**
  *
- * @author Diep.Tran
+ * 
  */
 public class Employee {
     int id;

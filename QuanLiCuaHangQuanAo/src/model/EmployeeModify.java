@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
 /**
  * CRUD (insert, update, delete, findAll)
- * @author Diep.Tran
+ * 
  */
 public class EmployeeModify {
     public static List<Employee> findAll() {
