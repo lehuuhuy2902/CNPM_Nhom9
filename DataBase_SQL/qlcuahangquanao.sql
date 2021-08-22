@@ -11,11 +11,14 @@
  Target Server Version : 100414
  File Encoding         : 65001
 
- Date: 23/06/2021 11:14:28
+ Date: 22/08/2021 15:56:28
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+CREATE DATABASE IF NOT EXISTS qlcuahangquanao;
+USE qlcuahangquanao;
 
 -- ----------------------------
 -- Table structure for customer
@@ -36,7 +39,7 @@ CREATE TABLE `customer`  (
 -- ----------------------------
 -- Records of customer
 -- ----------------------------
-INSERT INTO `customer` VALUES ('C000', 'Khách Vãng Lai', '0000000000', '', 0, '1900-01-01', 'vanglai@gmail.com', '1900-01-01');
+INSERT INTO `customer` VALUES ('C000', 'Khách Vãng Lai', '0000000000', NULL, NULL, NULL, 'vanglai@gmail.com', NULL);
 INSERT INTO `customer` VALUES ('C001', 'Nguyễn Thị Thủy', '0237569411', 'Thành viên Vàng', 3038, '2022-06-08', 'thuy@gmail.com', '1985-02-21');
 INSERT INTO `customer` VALUES ('C002', 'Trần Lê Hòa Nam', '0985611455', 'Thành viên Đồng', 1258, '2022-06-08', 'nam@gmail.com', '2000-02-19');
 INSERT INTO `customer` VALUES ('C003', 'Lâm Lệ Châu', '0155214455', 'Thành viên Đồng', 2014, '2022-06-08', 'chau@gmail.com', '2004-02-01');
@@ -81,16 +84,17 @@ CREATE TABLE `employee`  (
   `age` int(11) NULL DEFAULT NULL,
   `position` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `phone_number` int(11) NULL DEFAULT NULL,
+  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of employee
 -- ----------------------------
-INSERT INTO `employee` VALUES (0, 'Hồ Quốc Chung', 'Male', 44, 'admin', 393777466);
-INSERT INTO `employee` VALUES (1, 'Nguyen Van Hung', 'Male', 35, 'admin', 325987463);
-INSERT INTO `employee` VALUES (2, 'Le Quoc Dat', 'Male', 35, 'bán hàng', 988667667);
-INSERT INTO `employee` VALUES (3, 'Lê Thị Tuyết Hoa', 'Female', 29, 'kho', 995443455);
+INSERT INTO `employee` VALUES (0, 'Hồ Quốc Chung', 'Male', 44, 'admin', 393777466, 'hoquocchung');
+INSERT INTO `employee` VALUES (1, 'Nguyen Van Hung', 'Male', 35, 'admin', 325987463, 'nguyenvanhung');
+INSERT INTO `employee` VALUES (2, 'Le Quoc Dat', 'Male', 35, 'bán hàng', 988667667, 'lequocdat29');
+INSERT INTO `employee` VALUES (3, 'Lê Thị Tuyết Hoa', 'Female', 29, 'kho', 995443455, 'tuyethoa44');
 
 -- ----------------------------
 -- Table structure for invoice
@@ -104,21 +108,22 @@ CREATE TABLE `invoice`  (
   `discount` decimal(10, 2) NULL DEFAULT NULL,
   `usePoint` decimal(5, 0) NULL DEFAULT NULL,
   `price_Invoice` decimal(10, 0) NULL DEFAULT NULL,
+  `id_employee` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_Invoice`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of invoice
 -- ----------------------------
-INSERT INTO `invoice` VALUES ('HD0', 'C001', '2021-06-07', 912000.00, 10000.00, 200, 900000);
-INSERT INTO `invoice` VALUES ('HD1', 'C003', '2021-06-07', 375000.00, 0.00, 0, 375000);
-INSERT INTO `invoice` VALUES ('HD2', 'C001', '2021-06-08', 450000.00, 50000.00, 1000, 390000);
-INSERT INTO `invoice` VALUES ('HD3', 'C001', '2021-06-09', 100000.00, 15000.00, 1200, 73000);
-INSERT INTO `invoice` VALUES ('HD4', 'C001', '2021-06-22', 25000.00, 10000.00, 11, 14890);
-INSERT INTO `invoice` VALUES ('HD5', 'C001', '2021-06-22', 25000.00, 4000000.00, -14, -3974860);
-INSERT INTO `invoice` VALUES ('HD6', 'C001', '2021-06-22', 25000.00, 0.00, 0, 25000);
-INSERT INTO `invoice` VALUES ('HD7', 'C001', '2021-06-22', 175000.00, 0.00, 0, 175000);
-INSERT INTO `invoice` VALUES ('HD8', 'C001', '2021-06-22', 25000.00, 0.00, 0, 25000);
+INSERT INTO `invoice` VALUES ('HD0', 'C001', '2021-06-07', 912000.00, 10000.00, 200, 900000, '3');
+INSERT INTO `invoice` VALUES ('HD1', 'C003', '2021-06-07', 375000.00, 0.00, 0, 375000, '3');
+INSERT INTO `invoice` VALUES ('HD2', 'C001', '2021-06-08', 450000.00, 50000.00, 1000, 390000, '2');
+INSERT INTO `invoice` VALUES ('HD3', 'C001', '2021-06-09', 100000.00, 15000.00, 1200, 73000, '1');
+INSERT INTO `invoice` VALUES ('HD4', 'C001', '2021-06-22', 25000.00, 10000.00, 11, 14890, '3');
+INSERT INTO `invoice` VALUES ('HD5', 'C001', '2021-06-22', 25000.00, 4000000.00, -14, -3974860, '3');
+INSERT INTO `invoice` VALUES ('HD6', 'C001', '2021-06-22', 25000.00, 0.00, 0, 25000, '2');
+INSERT INTO `invoice` VALUES ('HD7', 'C001', '2021-06-22', 175000.00, 0.00, 0, 175000, '1');
+INSERT INTO `invoice` VALUES ('HD8', 'C001', '2021-06-22', 25000.00, 0.00, 0, 25000, '1');
 
 -- ----------------------------
 -- Table structure for product
@@ -140,8 +145,8 @@ CREATE TABLE `product`  (
 -- ----------------------------
 INSERT INTO `product` VALUES ('SP001', 'Áo len lạnh', 'cái', 25000.00, '2021-06-02', 10, 'Còn Hàng');
 INSERT INTO `product` VALUES ('SP002', 'Đồ ngủ ABC', 'bộ', 320000.00, '2021-06-22', 12, 'Còn Hàng');
-INSERT INTO `product` VALUES ('SP003', 'Áo khoác hoddie basic', 'cái', 115000.00, '2021-05-12', 3, 'Còn Hàng');
-INSERT INTO `product` VALUES ('SP004', 'Quần jeans nam', 'cái', 295000.00, '2021-06-09', 3, 'Ngừng Bán');
+INSERT INTO `product` VALUES ('SP003', 'Áo khoác hobbie', 'cái', 115000.00, '2021-05-12', 3, 'Còn Hàng');
+INSERT INTO `product` VALUES ('SP004', 'Quần jeans nam', 'cái', 295000.00, '2021-06-25', 3, 'Ngừng Bán');
 INSERT INTO `product` VALUES ('SP005', 'Váy xếp li', 'cái', 296000.00, '2021-05-03', 0, 'Hết Hàng');
 INSERT INTO `product` VALUES ('SP006', 'Quần âu nam basic', 'cái', 250000.00, '2021-06-09', 10, 'Còn Hàng');
 INSERT INTO `product` VALUES ('SP007', 'Áo sơ mi tay dài', 'cái', 115000.00, '2021-05-17', 12, 'Còn Hàng');
@@ -156,15 +161,19 @@ INSERT INTO `product` VALUES ('SP012', 'Quần kaki panda nâu', 'cái', 119000.
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
-  `user` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `user` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `status` int(255) NULL DEFAULT NULL
+  `status` int(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`user`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('admin', '123', NULL);
-INSERT INTO `user` VALUES ('nguyenvannam', '456', NULL);
+INSERT INTO `user` VALUES ('hoquocchung', '123', NULL);
+INSERT INTO `user` VALUES ('lequocdat29', '999', NULL);
+INSERT INTO `user` VALUES ('nguyenvanhung', '456', NULL);
+INSERT INTO `user` VALUES ('tuyethoa44', '111', NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
